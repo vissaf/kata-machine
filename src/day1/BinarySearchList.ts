@@ -1,17 +1,17 @@
 export default function bs_list(haystack: number[], needle: number): boolean {
 
-    let lo = 0;
-    let hi = haystack.length;
+    let low = 0;
+    let high = haystack.length;
     do {
-        let midpoint = Math.floor(lo + (hi-lo)/2)
-        let value = haystack[midpoint];
-        if(value === needle) {
+        let middleIndexValue = Math.floor(low + (high - low)/2);
+        let selectedNeedle = haystack[middleIndexValue];
+        if(selectedNeedle === needle) {
             return true;
-        } else if (value > needle) {
-            hi = midpoint;
+        } else if (selectedNeedle > needle) {
+            high = middleIndexValue;
         } else {
-            lo = midpoint + 1;
+            low = middleIndexValue + 1;
         }
-    } while (lo < hi);
+    } while(low < high)
     return false;
 }
